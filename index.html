@@ -1,0 +1,2137 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio · Hamed Naar · BTS SIO SISR</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.9.0/dist/tabler-icons.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        :root {
+            --bg: #06101e;
+            --bg2: #0a1828;
+            --bg3: #0e1f33;
+            --bg4: #122640;
+            --cyan: #00c8f0;
+            --cyan2: #00a8cc;
+            --cyan-dim: rgba(0, 200, 240, 0.12);
+            --cyan-glow: rgba(0, 200, 240, 0.25);
+            --blue: #1a7aff;
+            --green: #00e57a;
+            --amber: #ffa726;
+            --text: #c8ddef;
+            --text2: #6a90ab;
+            --text3: #3a5a72;
+            --border: #132a42;
+            --border2: #1e3d5c;
+            --side: 220px;
+            --r: 6px;
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            font-family: 'Space Grotesk', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        /* ─── BACKGROUND GRID ─── */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            background-image:
+                linear-gradient(rgba(0, 200, 240, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 200, 240, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        /* ─── SIDEBAR ─── */
+        #sb {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: var(--side);
+            height: 100vh;
+            background: var(--bg2);
+            border-right: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            z-index: 100;
+            overflow-y: auto;
+        }
+
+        .sb-top {
+            padding: 28px 18px 20px;
+            border-bottom: 1px solid var(--border)
+        }
+
+        .sb-logo {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            color: var(--cyan);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .sb-logo::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--green);
+            box-shadow: 0 0 8px var(--green);
+            flex-shrink: 0
+        }
+
+        .sb-av {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--r);
+            background: linear-gradient(135deg, #0a3060, #1a5fa8);
+            border: 1px solid var(--cyan2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 16px;
+            color: var(--cyan);
+            font-family: 'JetBrains Mono', monospace;
+            margin-bottom: 10px;
+            box-shadow: 0 0 16px rgba(0, 200, 240, 0.15);
+        }
+
+        .sb-name {
+            font-size: 15px;
+            font-weight: 600;
+            color: #e8f4ff;
+            line-height: 1.2
+        }
+
+        .sb-role {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            color: var(--text3);
+            margin-top: 4px;
+            letter-spacing: 1px
+        }
+
+        nav {
+            padding: 10px 0;
+            flex: 1
+        }
+
+        .ni {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            padding: 9px 18px;
+            font-size: 13px;
+            color: var(--text2);
+            cursor: pointer;
+            transition: all .18s;
+            border-left: 2px solid transparent;
+            text-decoration: none;
+            font-family: 'JetBrains Mono', monospace;
+            letter-spacing: 0.2px;
+        }
+
+        .ni:hover {
+            color: var(--text);
+            background: rgba(0, 200, 240, 0.05)
+        }
+
+        .ni.on {
+            color: var(--cyan);
+            background: var(--cyan-dim);
+            border-left-color: var(--cyan);
+        }
+
+        .ni i {
+            font-size: 15px;
+            width: 16px;
+            flex-shrink: 0
+        }
+
+        .ni-num {
+            font-size: 9px;
+            color: var(--text3);
+            min-width: 16px
+        }
+
+        .sb-foot {
+            padding: 14px 18px;
+            border-top: 1px solid var(--border);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            color: var(--text3);
+        }
+
+        .sb-foot span {
+            color: var(--cyan2)
+        }
+
+        /* ─── MAIN ─── */
+        #mn {
+            margin-left: var(--side);
+            flex: 1;
+            min-height: 100vh;
+            position: relative;
+            z-index: 1
+        }
+
+        .sec {
+            min-height: 100vh;
+            padding: 44px 44px 56px;
+            display: none;
+            flex-direction: column
+        }
+
+        .sec.on {
+            display: flex
+        }
+
+        /* ─── PAGE HEADER ─── */
+        .ph {
+            margin-bottom: 36px
+        }
+
+        .ptag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: var(--cyan);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        .ptag::before {
+            content: '>';
+            color: var(--cyan2)
+        }
+
+        .ptag::after {
+            content: '';
+            flex: 0 0 32px;
+            height: 1px;
+            background: var(--border2)
+        }
+
+        .ptitle {
+            font-size: 28px;
+            font-weight: 700;
+            color: #e8f4ff;
+            letter-spacing: -0.5px;
+            line-height: 1.2
+        }
+
+        .psub {
+            font-size: 14.5px;
+            color: var(--text2);
+            margin-top: 8px;
+            max-width: 600px;
+            line-height: 1.7
+        }
+
+        .pdiv {
+            margin: 12px 0;
+            width: 40px;
+            height: 2px;
+            background: var(--cyan);
+            border-radius: 1px;
+            box-shadow: 0 0 8px var(--cyan)
+        }
+
+        /* ─── CARD BASE ─── */
+        .card {
+            background: var(--bg3);
+            border: 1px solid var(--border);
+            border-radius: var(--r);
+            padding: 22px 24px;
+            margin-bottom: 18px;
+            position: relative;
+            transition: border-color .2s;
+        }
+
+        .card:hover {
+            border-color: var(--border2)
+        }
+
+        .card-accent {
+            border-top: 2px solid var(--cyan)
+        }
+
+        .card h3 {
+            font-size: 15px;
+            font-weight: 600;
+            color: #ddeeff;
+            margin-bottom: 4px
+        }
+
+        .card .sub {
+            font-size: 12.5px;
+            color: var(--text2);
+            margin-bottom: 14px;
+            font-family: 'JetBrains Mono', monospace
+        }
+
+        /* ─── ILLUSTRATION SLOT ─── */
+        .img-slot {
+            border: 1.5px dashed var(--border2);
+            border-radius: var(--r);
+            background: rgba(10, 24, 40, 0.6);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            color: var(--text3);
+            cursor: pointer;
+            transition: all .2s;
+            position: relative;
+            overflow: hidden;
+            min-height: 180px;
+        }
+
+        .img-slot::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(0, 200, 240, 0.03) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .img-slot:hover {
+            border-color: var(--cyan2);
+            color: var(--text2);
+            background: rgba(0, 200, 240, 0.04)
+        }
+
+        .img-slot i {
+            font-size: 28px;
+            color: var(--border2);
+            transition: color .2s
+        }
+
+        .img-slot:hover i {
+            color: var(--cyan2)
+        }
+
+        .img-slot .slot-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px
+        }
+
+        .img-slot .slot-hint {
+            font-size: 12px;
+            color: var(--text3)
+        }
+
+        .img-slot input[type=file] {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            cursor: pointer
+        }
+
+        /* ─── GRID ─── */
+        .g2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px
+        }
+
+        .g3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 14px
+        }
+
+        .g12 {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 16px;
+            align-items: start
+        }
+
+        .g21 {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 16px;
+            align-items: start
+        }
+
+        /* ─── HERO ─── */
+        .hero {
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            border-radius: var(--r);
+            padding: 0;
+            margin-bottom: 24px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .hero-inner {
+            padding: 48px 44px;
+            position: relative;
+            z-index: 1
+        }
+
+        .hero-grid {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(0, 200, 240, 0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 200, 240, 0.04) 1px, transparent 1px);
+            background-size: 24px 24px;
+            pointer-events: none;
+        }
+
+        .hero-corner {
+            position: absolute;
+            top: -1px;
+            right: -1px;
+            width: 180px;
+            height: 180px;
+            background: radial-gradient(circle at top right, rgba(0, 200, 240, 0.12), transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-prompt {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--cyan2);
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .hero-prompt::before {
+            content: '// ';
+            color: var(--text3)
+        }
+
+        .hero-h1 {
+            font-size: 42px;
+            font-weight: 700;
+            letter-spacing: -1px;
+            color: #f0f8ff;
+            line-height: 1.1;
+            margin-bottom: 8px
+        }
+
+        .hero-h1 span {
+            color: var(--cyan)
+        }
+
+        .hero-sub {
+            font-size: 15px;
+            color: var(--text2);
+            max-width: 580px;
+            line-height: 1.8;
+            margin-bottom: 28px
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 11px 22px;
+            background: transparent;
+            border: 1px solid var(--cyan);
+            color: var(--cyan);
+            border-radius: var(--r);
+            font-size: 13.5px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all .2s;
+            font-family: 'JetBrains Mono', monospace;
+            letter-spacing: .5px;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background: var(--cyan-dim);
+            box-shadow: 0 0 20px var(--cyan-glow)
+        }
+
+        .btn i {
+            font-size: 15px
+        }
+
+        /* ─── ICON GRID ─── */
+        .ig {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px
+        }
+
+        .ib {
+            background: var(--bg3);
+            border: 1px solid var(--border);
+            border-radius: var(--r);
+            padding: 18px 12px;
+            text-align: center;
+            transition: all .2s;
+            cursor: default;
+        }
+
+        .ib:hover {
+            border-color: var(--cyan2);
+            background: var(--cyan-dim)
+        }
+
+        .ib:hover i {
+            color: var(--cyan)
+        }
+
+        .ib i {
+            font-size: 26px;
+            color: var(--text3);
+            display: block;
+            margin-bottom: 8px;
+            transition: color .2s
+        }
+
+        .ib span {
+            font-size: 11.5px;
+            color: var(--text2);
+            font-family: 'JetBrains Mono', monospace;
+            letter-spacing: .5px
+        }
+
+        /* ─── TAG / BADGE ─── */
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+            margin-top: 10px
+        }
+
+        .tag {
+            background: rgba(0, 200, 240, 0.08);
+            color: var(--cyan2);
+            border: 1px solid rgba(0, 200, 240, 0.2);
+            padding: 3px 10px;
+            border-radius: 3px;
+            font-size: 11.5px;
+            font-weight: 500;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .tag.g {
+            background: rgba(10, 30, 50, 0.8);
+            color: var(--text2);
+            border-color: var(--border)
+        }
+
+        .dot-green {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--green);
+            box-shadow: 0 0 6px var(--green);
+            flex-shrink: 0;
+            display: inline-block
+        }
+
+        .dot-cyan {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--cyan);
+            box-shadow: 0 0 6px var(--cyan);
+            flex-shrink: 0;
+            display: inline-block
+        }
+
+        .dot-amber {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--amber);
+            box-shadow: 0 0 6px var(--amber);
+            flex-shrink: 0;
+            display: inline-block
+        }
+
+        /* ─── PROJECT CARD ─── */
+        .pcard {
+            background: var(--bg3);
+            border: 1px solid var(--border);
+            border-radius: var(--r);
+            overflow: hidden;
+            margin-bottom: 24px;
+        }
+
+        .pcard-head {
+            background: var(--bg4);
+            padding: 16px 22px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .pcard-num {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            color: var(--text3);
+            background: var(--bg2);
+            padding: 3px 8px;
+            border-radius: 3px;
+            border: 1px solid var(--border);
+        }
+
+        .pcard-icon {
+            font-size: 20px;
+            color: var(--cyan2)
+        }
+
+        .pcard-title {
+            font-size: 15.5px;
+            font-weight: 600;
+            color: #ddeeff
+        }
+
+        .pcard-body {
+            padding: 22px
+        }
+
+        .plabel {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            color: var(--cyan);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 7px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .plabel::before {
+            content: '##';
+            color: var(--text3);
+            margin-right: 2px
+        }
+
+        .ptext {
+            font-size: 13.5px;
+            color: var(--text2);
+            line-height: 1.75
+        }
+
+        .plist {
+            padding-left: 0;
+            list-style: none
+        }
+
+        .plist li {
+            font-size: 13px;
+            color: var(--text2);
+            line-height: 1.65;
+            padding: 3px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .plist li:last-child {
+            border: none
+        }
+
+        .plist li::before {
+            content: '›';
+            color: var(--cyan2);
+            flex-shrink: 0;
+            font-weight: 700;
+            font-size: 14px;
+            margin-top: 1px;
+        }
+
+        .bilan {
+            background: rgba(0, 200, 240, 0.05);
+            border: 1px solid rgba(0, 200, 240, 0.15);
+            border-radius: var(--r);
+            padding: 14px 18px;
+            margin-top: 16px;
+            border-left: 3px solid var(--cyan);
+        }
+
+        .bilan-lbl {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            color: var(--cyan);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+
+        .bilan p {
+            font-size: 13.5px;
+            color: #8ab4cc;
+            line-height: 1.7
+        }
+
+        /* ─── COMP CARD ─── */
+        .cc {
+            background: var(--bg3);
+            border: 1px solid var(--border);
+            border-radius: var(--r);
+            padding: 18px 20px;
+        }
+
+        .cc:hover {
+            border-color: var(--border2)
+        }
+
+        .cc-icon {
+            font-size: 24px;
+            color: var(--cyan2);
+            margin-bottom: 10px
+        }
+
+        .cc-title {
+            font-size: 13.5px;
+            font-weight: 600;
+            color: #ddeeff;
+            margin-bottom: 10px
+        }
+
+        .cc-list {
+            list-style: none;
+            padding: 0
+        }
+
+        .cc-list li {
+            font-size: 12.5px;
+            color: var(--text2);
+            padding: 4px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            display: flex;
+            align-items: center;
+            gap: 7px;
+        }
+
+        .cc-list li:last-child {
+            border: none
+        }
+
+        .cc-list li::before {
+            content: '_';
+            color: var(--cyan);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px
+        }
+
+        /* ─── VEILLE ─── */
+        .vc {
+            background: var(--bg3);
+            border: 1px solid var(--border);
+            border-radius: var(--r);
+            padding: 18px 22px;
+            margin-bottom: 14px;
+            border-left: 3px solid var(--cyan2);
+            transition: border-color .2s;
+        }
+
+        .vc:hover {
+            border-left-color: var(--cyan)
+        }
+
+        .vc-date {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            color: var(--cyan);
+            margin-bottom: 5px;
+            letter-spacing: 1px
+        }
+
+        .vc-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: #ddeeff;
+            margin-bottom: 8px
+        }
+
+        .vc-text {
+            font-size: 13.5px;
+            color: var(--text2);
+            line-height: 1.7
+        }
+
+        /* ─── CONTACT ─── */
+        .crow {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 14px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .crow:last-child {
+            border: none
+        }
+
+        .cico {
+            width: 38px;
+            height: 38px;
+            border-radius: var(--r);
+            background: var(--cyan-dim);
+            border: 1px solid rgba(0, 200, 240, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .cico i {
+            font-size: 17px;
+            color: var(--cyan)
+        }
+
+        .clabel {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            color: var(--text3);
+            margin-bottom: 3px;
+            letter-spacing: 1px
+        }
+
+        .cval {
+            font-size: 13.5px;
+            font-weight: 500;
+            color: var(--text)
+        }
+
+        /* ─── OPTION BOX ─── */
+        .obox {
+            border: 1px solid var(--border);
+            border-radius: var(--r);
+            padding: 16px 18px;
+            background: var(--bg3);
+        }
+
+        .obox.sel {
+            border-color: var(--cyan2);
+            background: rgba(0, 200, 240, 0.06)
+        }
+
+        .obox h4 {
+            font-size: 13.5px;
+            font-weight: 600;
+            color: #ddeeff;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px
+        }
+
+        .obox.sel h4 {
+            color: var(--cyan)
+        }
+
+        .obox p {
+            font-size: 13px;
+            color: var(--text2);
+            line-height: 1.6
+        }
+
+        .sel-badge {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9px;
+            background: rgba(0, 200, 240, 0.15);
+            color: var(--cyan);
+            border: 1px solid rgba(0, 200, 240, 0.3);
+            padding: 2px 7px;
+            border-radius: 2px;
+            letter-spacing: 1px;
+            margin-left: auto;
+        }
+
+        /* ─── CODE INLINE ─── */
+        code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            background: rgba(0, 200, 240, 0.08);
+            color: var(--cyan2);
+            padding: 1px 6px;
+            border-radius: 3px;
+            border: 1px solid rgba(0, 200, 240, 0.15);
+        }
+
+        /* ─── TERMINAL BLOCK ─── */
+        .term {
+            background: #04080f;
+            border: 1px solid var(--border);
+            border-radius: var(--r);
+            padding: 16px 20px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12.5px;
+        }
+
+        .term .tline {
+            color: var(--text2);
+            line-height: 1.9
+        }
+
+        .term .tp {
+            color: var(--cyan2)
+        }
+
+        .term .tc {
+            color: var(--green)
+        }
+
+        .term .tco {
+            color: var(--text3)
+        }
+
+        /* ─── STAT BOXES ─── */
+        .sbox {
+            background: var(--bg3);
+            border: 1px solid var(--border);
+            border-radius: var(--r);
+            padding: 16px 18px;
+            text-align: center;
+        }
+
+        .sbox .snum {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--cyan);
+            font-family: 'JetBrains Mono', monospace;
+            line-height: 1
+        }
+
+        .sbox .slbl {
+            font-size: 11px;
+            color: var(--text2);
+            margin-top: 4px;
+            font-family: 'JetBrains Mono', monospace;
+            letter-spacing: 1px
+        }
+
+        /* ─── MOBILE ─── */
+        #mob-btn {
+            display: none;
+            position: fixed;
+            bottom: 22px;
+            right: 22px;
+            z-index: 200;
+            width: 46px;
+            height: 46px;
+            border-radius: var(--r);
+            background: var(--bg3);
+            border: 1px solid var(--cyan2);
+            color: var(--cyan);
+            cursor: pointer;
+            font-size: 20px;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 20px var(--cyan-glow);
+        }
+
+        @media(max-width:860px) {
+            :root {
+                --side: 0px
+            }
+
+            #sb {
+                transform: translateX(-220px);
+                width: 220px;
+                transition: transform .3s
+            }
+
+            #sb.open {
+                transform: none
+            }
+
+            #mn {
+                margin-left: 0
+            }
+
+            #mob-btn {
+                display: flex
+            }
+
+            .sec {
+                padding: 28px 18px 40px
+            }
+
+            .hero-inner {
+                padding: 32px 22px
+            }
+
+            .hero-h1 {
+                font-size: 30px
+            }
+
+            .g2,
+            .g3,
+            .g12,
+            .g21 {
+                grid-template-columns: 1fr
+            }
+
+            .ig {
+                grid-template-columns: repeat(2, 1fr)
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <aside id="sb">
+        <div class="sb-top">
+            <div class="sb-logo">SISR · 2026</div>
+            <div class="sb-av">HN</div>
+            <div class="sb-name">Hamed Naar</div>
+            <div class="sb-role">BTS SIO · OPTION SISR</div>
+        </div>
+        <nav>
+            <a class="ni on" onclick="go('accueil')"><i class="ti ti-home"></i><span class="ni-num">01</span>Accueil</a>
+            <a class="ni" onclick="go('profil')"><i class="ti ti-user"></i><span class="ni-num">02</span>Profil</a>
+            <a class="ni" onclick="go('bts')"><i class="ti ti-school"></i><span class="ni-num">03</span>BTS SIO SISR</a>
+            <a class="ni" onclick="go('contexte')"><i class="ti ti-building"></i><span class="ni-num">04</span>Contexte
+                pro</a>
+            <a class="ni" onclick="go('entreprise')"><i class="ti ti-briefcase"></i><span
+                    class="ni-num">05</span>Projets entreprise</a>
+            <a class="ni" onclick="go('formation')"><i class="ti ti-code"></i><span class="ni-num">06</span>Projets
+                formation</a>
+            <a class="ni" onclick="go('competences')"><i class="ti ti-cpu"></i><span
+                    class="ni-num">07</span>Compétences</a>
+            <a class="ni" onclick="go('veille')"><i class="ti ti-rss"></i><span class="ni-num">08</span>Veille
+                techno</a>
+            <a class="ni" onclick="go('contact')"><i class="ti ti-mail"></i><span class="ni-num">09</span>Contact</a>
+        </nav>
+        <div class="sb-foot">STATUS&nbsp;<span>●&nbsp;EN LIGNE</span></div>
+    </aside>
+
+    <!-- MAIN -->
+    <main id="mn">
+
+        <!-- ██ 01 — ACCUEIL ██ -->
+        <section class="sec on" id="accueil">
+            <div class="hero">
+                <div class="hero-grid"></div>
+                <div class="hero-corner"></div>
+                <div class="hero-inner">
+                    <div class="hero-prompt">Portfolio BTS SIO SISR — Hamed Naar</div>
+                    <h1 class="hero-h1">Hamed <span>Naar</span></h1>
+                    <p
+                        style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--text3);margin-bottom:18px">
+                        <span style="color:var(--cyan2)">role</span> = "Étudiant en BTS SIO option SISR"
+                    </p>
+                    <p class="hero-sub">Administration système, gestion des réseaux, support utilisateur, cybersécurité
+                        et maintenance informatique. Ce portfolio présente mon parcours, mes compétences et mes projets
+                        réalisés en formation et en milieu professionnel.</p>
+                    <div style="display:flex;gap:12px;flex-wrap:wrap">
+                        <a class="btn" onclick="go('entreprise')"><i class="ti ti-folder-open"></i>Voir mes projets</a>
+                        <a class="btn" onclick="go('contact')" style="border-color:var(--border2);color:var(--text2)"><i
+                                class="ti ti-mail"></i>Contact</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- illustration slot -->
+            <div class="g21" style="margin-bottom:18px">
+                <div class="img-slot" style="min-height:220px">
+                    <input type="file" accept="image/*" onchange="loadImg(this,this.parentNode)">
+                    <i class="ti ti-photo-plus" aria-hidden="true"></i>
+                    <span class="slot-label">Illustration principale</span>
+                    <span class="slot-hint">Photo de profil ou illustration technique</span>
+                </div>
+                <div style="display:flex;flex-direction:column;gap:12px">
+                    <div class="sbox">
+                        <div class="snum">5</div>
+                        <div class="slbl">Projets entreprise</div>
+                    </div>
+                    <div class="sbox">
+                        <div class="snum">3</div>
+                        <div class="slbl">Projets formation</div>
+                    </div>
+                    <div class="sbox">
+                        <div class="snum">2</div>
+                        <div class="slbl">Ans de formation</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ig">
+                <div class="ib"><i class="ti ti-network" aria-hidden="true"></i><span>Réseau</span></div>
+                <div class="ib"><i class="ti ti-server" aria-hidden="true"></i><span>Serveur</span></div>
+                <div class="ib"><i class="ti ti-shield-lock" aria-hidden="true"></i><span>Sécurité</span></div>
+                <div class="ib"><i class="ti ti-terminal-2" aria-hidden="true"></i><span>Linux</span></div>
+                <div class="ib"><i class="ti ti-device-desktop-analytics" aria-hidden="true"></i><span>Windows</span>
+                </div>
+                <div class="ib"><i class="ti ti-router" aria-hidden="true"></i><span>Baie réseau</span></div>
+                <div class="ib"><i class="ti ti-headset" aria-hidden="true"></i><span>Support</span></div>
+                <div class="ib"><i class="ti ti-database" aria-hidden="true"></i><span>Infrastructure</span></div>
+            </div>
+        </section>
+
+        <!-- ██ 02 — PROFIL ██ -->
+        <section class="sec" id="profil">
+            <div class="ph">
+                <div class="ptag">02 · Profil</div>
+                <h2 class="ptitle">À propos de moi</h2>
+                <div class="pdiv"></div>
+            </div>
+
+            <div class="g12" style="margin-bottom:18px">
+                <div>
+                    <div class="img-slot" style="min-height:260px">
+                        <input type="file" accept="image/*" onchange="loadImg(this,this.parentNode)">
+                        <i class="ti ti-user-circle" aria-hidden="true"></i>
+                        <span class="slot-label">Photo de profil</span>
+                        <span class="slot-hint">Portrait professionnel</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="card card-accent" style="margin-bottom:14px">
+                        <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">
+                            <div
+                                style="width:48px;height:48px;border-radius:var(--r);background:linear-gradient(135deg,#0a3060,#1a5fa8);border:1px solid var(--cyan2);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;color:var(--cyan);font-family:'JetBrains Mono',monospace;flex-shrink:0">
+                                HN</div>
+                            <div>
+                                <div style="font-size:17px;font-weight:700;color:#e8f4ff">Hamed Naar</div>
+                                <div
+                                    style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text3);margin-top:2px;letter-spacing:1px">
+                                    BTS SIO · OPTION SISR</div>
+                            </div>
+                            <div
+                                style="margin-left:auto;display:flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--green)">
+                                <span class="dot-green"></span>ACTIF
+                            </div>
+                        </div>
+                        <p style="font-size:14px;color:var(--text2);line-height:1.8">Je suis étudiant en BTS SIO option
+                            SISR. Cette formation me permet d'apprendre à installer, configurer, maintenir et sécuriser
+                            des infrastructures informatiques.</p>
+                    </div>
+                    <div class="card">
+                        <div class="plabel" style="margin-bottom:10px">Domaines d'intérêt</div>
+                        <div class="tags">
+                            <span class="tag">Administration système</span>
+                            <span class="tag">Réseau TCP/IP</span>
+                            <span class="tag">Cybersécurité</span>
+                            <span class="tag">Support N1</span>
+                            <span class="tag">Linux</span>
+                            <span class="tag">Windows Server</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="g2">
+                <div class="card">
+                    <div class="plabel">Parcours technique</div>
+                    <ul class="plist" style="margin-top:8px">
+                        <li>Déploiement Windows & Linux</li>
+                        <li>Installation MediaWiki</li>
+                        <li>Diagnostic réseau</li>
+                        <li>Inventaire de matériel</li>
+                        <li>Assistance utilisateur</li>
+                    </ul>
+                </div>
+                <div class="card" style="border-left:3px solid var(--cyan)">
+                    <div class="plabel">Objectif professionnel</div>
+                    <p style="font-size:14px;color:var(--text2);line-height:1.75;margin-top:8px">Mon objectif est de
+                        devenir <strong style="color:#ddeeff">technicien systèmes et réseaux</strong>, <strong
+                            style="color:#ddeeff">technicien support</strong> ou <strong
+                            style="color:#ddeeff">administrateur systèmes et réseaux junior</strong>.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ██ 03 — BTS SIO SISR ██ -->
+        <section class="sec" id="bts">
+            <div class="ph">
+                <div class="ptag">03 · Formation</div>
+                <h2 class="ptitle">BTS SIO option SISR</h2>
+                <div class="pdiv"></div>
+            </div>
+
+            <div class="card" style="margin-bottom:18px">
+                <p style="font-size:14.5px;color:var(--text2);line-height:1.8">Le <strong style="color:#ddeeff">BTS
+                        SIO</strong>, Services Informatiques aux Organisations, forme des techniciens capables de
+                    répondre aux besoins informatiques des organisations.</p>
+            </div>
+
+            <div class="g2" style="margin-bottom:18px">
+                <div class="obox">
+                    <h4><i class="ti ti-code" aria-hidden="true"></i>Option SLAM</h4>
+                    <p>Développement d'applications, programmation et bases de données.</p>
+                </div>
+                <div class="obox sel">
+                    <h4><i class="ti ti-network" aria-hidden="true"></i>Option SISR <span class="sel-badge">MON
+                            CHOIX</span></h4>
+                    <p>Administration des systèmes, gestion des réseaux, sécurité informatique et support utilisateur.
+                    </p>
+                </div>
+            </div>
+
+            <!-- illustration slot -->
+            <div class="img-slot" style="min-height:160px;margin-bottom:18px">
+                <input type="file" accept="image/*" onchange="loadImg(this,this.parentNode)">
+                <i class="ti ti-layout-grid" aria-hidden="true"></i>
+                <span class="slot-label">Schéma ou illustration BTS SIO</span>
+                <span class="slot-hint">Diagramme de la formation, capture de cours, logo officiel…</span>
+            </div>
+
+            <div class="card">
+                <div class="plabel" style="margin-bottom:14px">Compétences de l'option SISR</div>
+                <div class="g3">
+                    <div
+                        style="display:flex;align-items:flex-start;gap:9px;padding:10px;background:rgba(0,200,240,0.04);border:1px solid var(--border);border-radius:var(--r)">
+                        <i class="ti ti-server" style="font-size:18px;color:var(--cyan2);flex-shrink:0;margin-top:1px"
+                            aria-hidden="true"></i>
+                        <span style="font-size:12.5px;color:var(--text2)">Installer et configurer des systèmes</span>
+                    </div>
+                    <div
+                        style="display:flex;align-items:flex-start;gap:9px;padding:10px;background:rgba(0,200,240,0.04);border:1px solid var(--border);border-radius:var(--r)">
+                        <i class="ti ti-device-desktop-analytics"
+                            style="font-size:18px;color:var(--cyan2);flex-shrink:0;margin-top:1px"
+                            aria-hidden="true"></i>
+                        <span style="font-size:12.5px;color:var(--text2)">Administrer Windows et Linux</span>
+                    </div>
+                    <div
+                        style="display:flex;align-items:flex-start;gap:9px;padding:10px;background:rgba(0,200,240,0.04);border:1px solid var(--border);border-radius:var(--r)">
+                        <i class="ti ti-network" style="font-size:18px;color:var(--cyan2);flex-shrink:0;margin-top:1px"
+                            aria-hidden="true"></i>
+                        <span style="font-size:12.5px;color:var(--text2)">Gérer un réseau informatique</span>
+                    </div>
+                    <div
+                        style="display:flex;align-items:flex-start;gap:9px;padding:10px;background:rgba(0,200,240,0.04);border:1px solid var(--border);border-radius:var(--r)">
+                        <i class="ti ti-headset" style="font-size:18px;color:var(--cyan2);flex-shrink:0;margin-top:1px"
+                            aria-hidden="true"></i>
+                        <span style="font-size:12.5px;color:var(--text2)">Répondre aux incidents utilisateurs</span>
+                    </div>
+                    <div
+                        style="display:flex;align-items:flex-start;gap:9px;padding:10px;background:rgba(0,200,240,0.04);border:1px solid var(--border);border-radius:var(--r)">
+                        <i class="ti ti-shield-lock"
+                            style="font-size:18px;color:var(--cyan2);flex-shrink:0;margin-top:1px"
+                            aria-hidden="true"></i>
+                        <span style="font-size:12.5px;color:var(--text2)">Sécuriser les équipements</span>
+                    </div>
+                    <div
+                        style="display:flex;align-items:flex-start;gap:9px;padding:10px;background:rgba(0,200,240,0.04);border:1px solid var(--border);border-radius:var(--r)">
+                        <i class="ti ti-file-text"
+                            style="font-size:18px;color:var(--cyan2);flex-shrink:0;margin-top:1px"
+                            aria-hidden="true"></i>
+                        <span style="font-size:12.5px;color:var(--text2)">Documenter les interventions</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ██ 04 — CONTEXTE PRO ██ -->
+        <section class="sec" id="contexte">
+            <div class="ph">
+                <div class="ptag">04 · Contexte professionnel</div>
+                <h2 class="ptitle">Mairie de Massy / Gymnases municipaux</h2>
+                <div class="pdiv"></div>
+            </div>
+
+            <div class="g21" style="margin-bottom:18px;align-items:start">
+                <div>
+                    <div class="card card-accent" style="margin-bottom:14px">
+                        <div style="display:flex;align-items:center;gap:14px;margin-bottom:14px">
+                            <div
+                                style="width:44px;height:44px;border-radius:var(--r);background:var(--cyan-dim);border:1px solid rgba(0,200,240,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+                                <i class="ti ti-building" style="font-size:22px;color:var(--cyan)"
+                                    aria-hidden="true"></i>
+                            </div>
+                            <div>
+                                <div style="font-size:15px;font-weight:600;color:#ddeeff">Mairie de Massy</div>
+                                <div
+                                    style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text3);margin-top:3px;letter-spacing:.5px">
+                                    GYMNASES MUNICIPAUX · ÎLE-DE-FRANCE</div>
+                            </div>
+                        </div>
+                        <p style="font-size:13.5px;color:var(--text2);line-height:1.75">Dans le cadre de mon expérience
+                            professionnelle, j'ai travaillé en lien avec la mairie de Massy sur des missions liées aux
+                            infrastructures informatiques de certains gymnases municipaux.</p>
+                    </div>
+                    <div class="card" style="margin-bottom:14px">
+                        <div class="plabel">Équipements sur site</div>
+                        <div class="ig" style="grid-template-columns:repeat(3,1fr);gap:10px;margin-top:10px">
+                            <div class="ib"><i class="ti ti-desktop" aria-hidden="true"></i><span>Postes</span></div>
+                            <div class="ib"><i class="ti ti-printer" aria-hidden="true"></i><span>Imprimantes</span>
+                            </div>
+                            <div class="ib"><i class="ti ti-network" aria-hidden="true"></i><span>Réseau</span></div>
+                            <div class="ib"><i class="ti ti-server" aria-hidden="true"></i><span>Baies</span></div>
+                            <div class="ib"><i class="ti ti-plug" aria-hidden="true"></i><span>RJ45</span></div>
+                            <div class="ib"><i class="ti ti-phone" aria-hidden="true"></i><span>Téléphones</span></div>
+                        </div>
+                    </div>
+                    <div class="bilan">
+                        <div class="bilan-lbl">Apport de l'expérience</div>
+                        <p>Cette expérience m'a permis de faire le lien entre ma formation BTS SIO SISR et un contexte
+                            professionnel réel.</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="img-slot" style="min-height:340px">
+                        <input type="file" accept="image/*" onchange="loadImg(this,this.parentNode)">
+                        <i class="ti ti-building-community" aria-hidden="true"></i>
+                        <span class="slot-label">Illustration du site</span>
+                        <span class="slot-hint">Photo gymnase, baie réseau, équipements…</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="term">
+                <div class="tline"><span class="tp">hamed@massy</span>:<span class="tc">~$</span> cat missions.txt</div>
+                <div class="tline tco"># Missions réalisées dans les gymnases municipaux</div>
+                <div class="tline"><span class="tc">›</span> Support utilisateur (niveau 1)</div>
+                <div class="tline"><span class="tc">›</span> Vérification et diagnostic réseau</div>
+                <div class="tline"><span class="tc">›</span> Inventaire du parc informatique</div>
+                <div class="tline"><span class="tc">›</span> Intervention sur baie informatique</div>
+                <div class="tline"><span class="tc">›</span> Vérification des postes informatiques</div>
+            </div>
+        </section>
+
+        <!-- ██ 05 — PROJETS ENTREPRISE ██ -->
+        <section class="sec" id="entreprise">
+            <div class="ph">
+                <div class="ptag">05 · Projets en entreprise</div>
+                <h2 class="ptitle">Missions réalisées en contexte professionnel</h2>
+                <div class="pdiv"></div>
+            </div>
+
+            <!-- P1 -->
+            <div class="pcard">
+                <div class="pcard-head">
+                    <i class="ti ti-server pcard-icon" aria-hidden="true"></i>
+                    <div style="flex:1">
+                        <div class="pcard-num">PROJET_01.md</div>
+                        <div class="pcard-title">Intervention sur baie informatique</div>
+                    </div>
+                    <div
+                        style="display:flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--green)">
+                        <span class="dot-green"></span>TERMINÉ</div>
+                </div>
+                <div class="pcard-body">
+                    <div class="g2" style="margin-bottom:16px">
+                        <div>
+                            <div class="plabel">Contexte</div>
+                            <p class="ptext">Certains gymnases disposent d'une baie informatique centralisant les
+                                connexions réseau : switchs, panneaux de brassage, câbles RJ45 et équipements opérateur.
+                            </p>
+                        </div>
+                        <div class="img-slot" style="min-height:140px">
+                            <input type="file" accept="image/*" onchange="loadImg(this,this.parentNode)">
+                            <i class="ti ti-photo" aria-hidden="true"></i>
+                            <span class="slot-label">Photo de la baie</span>
+                        </div>
+                    </div>
+                    <div class="g2" style="margin-bottom:14px">
+                        <div>
+                            <div class="plabel">Travail réalisé</div>
+                            <ul class="plist">
+                                <li>Identification des câbles réseau</li>
+                                <li>Vérification des branchements switchs ↔ panneau</li>
+                                <li>Repérage des prises réseau par zone</li>
+                                <li>Vérification de l'état du câblage</li>
+                                <li>Signalement des anomalies visibles</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="plabel">Compétences développées</div>
+                            <ul class="plist">
+                                <li>Identifier les équipements réseau</li>
+                                <li>Comprendre le brassage réseau</li>
+                                <li>Vérifier la connectivité physique</li>
+                                <li>Participer à la maintenance réseau</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="bilan">
+                        <div class="bilan-lbl">Bilan</div>
+                        <p>Mission qui m'a permis de comprendre le fonctionnement physique d'un réseau local et
+                            l'importance d'un câblage propre et d'une baie organisée.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- P2 -->
+            <div class="pcard">
+                <div class="pcard-head">
+                    <i class="ti ti-wifi pcard-icon" aria-hidden="true"></i>
+                    <div style="flex:1">
+                        <div class="pcard-num">PROJET_02.md</div>
+                        <div class="pcard-title">Diagnostic réseau dans un gymnase</div>
+                    </div>
+                    <div
+                        style="display:flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--green)">
+                        <span class="dot-green"></span>TERMINÉ</div>
+                </div>
+                <div class="pcard-body">
+                    <div class="g2" style="margin-bottom:16px">
+                        <div>
+                            <div class="plabel">Contexte</div>
+                            <p class="ptext">Problèmes de connexion rencontrés par les utilisateurs : accès instable,
+                                poste non connecté, téléphone IP non fonctionnel, imprimante inaccessible.</p>
+                        </div>
+                        <div class="img-slot" style="min-height:140px">
+                            <input type="file" accept="image/*" onchange="loadImg(this,this.parentNode)">
+                            <i class="ti ti-photo" aria-hidden="true"></i>
+                            <span class="slot-label">Capture ou schéma réseau</span>
+                        </div>
+                    </div>
+                    <div class="term" style="margin-bottom:14px">
+                        <div class="tline"><span class="tp">hamed@gymnase</span>:<span class="tc">~$</span> ipconfig
+                            /all</div>
+                        <div class="tline tco"># Vérification de l'adresse IP du poste</div>
+                        <div class="tline"><span class="tp">hamed@gymnase</span>:<span class="tc">~$</span> ping
+                            192.168.1.1</div>
+                        <div class="tline tco"># Test de connectivité vers la passerelle</div>
+                    </div>
+                    <div class="g2" style="margin-bottom:14px">
+                        <div>
+                            <div class="plabel">Travail réalisé</div>
+                            <ul class="plist">
+                                <li>Vérification des branchements poste</li>
+                                <li>Contrôle câble RJ45 et prise réseau</li>
+                                <li>Vérification adresse IP via <code>ipconfig</code></li>
+                                <li>Test connectivité via <code>ping</code></li>
+                                <li>Vérification port dans la baie</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="plabel">Compétences développées</div>
+                            <ul class="plist">
+                                <li>Diagnostiquer un problème réseau</li>
+                                <li>Vérifier une configuration IP</li>
+                                <li>Tester la connectivité</li>
+                                <li>Identifier une panne matérielle</li>
+                                <li>Assister les utilisateurs</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="bilan">
+                        <div class="bilan-lbl">Bilan</div>
+                        <p>Un problème réseau peut venir de plusieurs éléments : le poste, le câble, la prise murale, le
+                            switch, le brassage ou la configuration IP.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- P3 -->
+            <div class="pcard">
+                <div class="pcard-head">
+                    <i class="ti ti-clipboard-list pcard-icon" aria-hidden="true"></i>
+                    <div style="flex:1">
+                        <div class="pcard-num">PROJET_03.md</div>
+                        <div class="pcard-title">Inventaire du matériel informatique</div>
+                    </div>
+                    <div
+                        style="display:flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--green)">
+                        <span class="dot-green"></span>TERMINÉ</div>
+                </div>
+                <div class="pcard-body">
+                    <div class="g2" style="margin-bottom:16px">
+                        <div>
+                            <div class="plabel">Contexte &amp; objectif</div>
+                            <p class="ptext">Recenser le matériel informatique des gymnases (postes, écrans,
+                                imprimantes, téléphones, périphériques, équipements réseau) afin de faciliter le suivi
+                                du parc.</p>
+                        </div>
+                        <div class="img-slot" style="min-height:140px">
+                            <input type="file" accept="image/*" onchange="loadImg(this,this.parentNode)">
+                            <i class="ti ti-photo" aria-hidden="true"></i>
+                            <span class="slot-label">Capture du tableau d'inventaire</span>
+                        </div>
+                    </div>
+                    <div class="g2" style="margin-bottom:14px">
+                        <div>
+                            <div class="plabel">Travail réalisé</div>
+                            <ul class="plist">
+                                <li>Identification des postes informatiques</li>
+                                <li>Recensement des périphériques</li>
+                                <li>Vérification état général du matériel</li>
+                                <li>Renseignement : type, emplacement, état</li>
+                                <li>Signalement du matériel défectueux</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="plabel">Compétences développées</div>
+                            <ul class="plist">
+                                <li>Gérer le patrimoine informatique</li>
+                                <li>Réaliser un inventaire matériel</li>
+                                <li>Organiser les informations techniques</li>
+                                <li>Préparer les futures interventions</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="bilan">
+                        <div class="bilan-lbl">Bilan</div>
+                        <p>L'inventaire permet de savoir quel matériel est utilisé, où il se trouve et dans quel état il
+                            est — base essentielle de la gestion de parc.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- P4 -->
+            <div class="pcard">
+                <div class="pcard-head">
+                    <i class="ti ti-headset pcard-icon" aria-hidden="true"></i>
+                    <div style="flex:1">
+                        <div class="pcard-num">PROJET_04.md</div>
+                        <div class="pcard-title">Support utilisateur auprès des agents</div>
+                    </div>
+                    <div
+                        style="display:flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--green)">
+                        <span class="dot-green"></span>TERMINÉ</div>
+                </div>
+                <div class="pcard-body">
+                    <div class="g2" style="margin-bottom:16px">
+                        <div>
+                            <div class="plabel">Contexte</div>
+                            <p class="ptext">Les agents rencontrent des problèmes informatiques quotidiens : ordinateur
+                                lent, problème d'impression, accès réseau, mot de passe, logiciel bloqué, document
+                                introuvable.</p>
+                        </div>
+                        <div class="img-slot" style="min-height:140px">
+                            <input type="file" accept="image/*" onchange="loadImg(this,this.parentNode)">
+                            <i class="ti ti-photo" aria-hidden="true"></i>
+                            <span class="slot-label">Illustration support utilisateur</span>
+                        </div>
+                    </div>
+                    <div class="g2" style="margin-bottom:14px">
+                        <div>
+                            <div class="plabel">Travail réalisé</div>
+                            <ul class="plist">
+                                <li>Écoute et analyse de la demande</li>
+                                <li>Vérification des branchements</li>
+                                <li>Redémarrage du poste si nécessaire</li>
+                                <li>Vérification réseau et imprimante</li>
+                                <li>Remontée au service informatique</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="plabel">Compétences développées</div>
+                            <ul class="plist">
+                                <li>Répondre aux incidents N1</li>
+                                <li>Accompagner les utilisateurs</li>
+                                <li>Analyser une demande</li>
+                                <li>Communiquer avec un service IT</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="bilan">
+                        <div class="bilan-lbl">Bilan</div>
+                        <p>Le support informatique demande de la méthode, de la patience et une bonne communication avec
+                            les utilisateurs.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- P5 -->
+            <div class="pcard">
+                <div class="pcard-head">
+                    <i class="ti ti-device-desktop pcard-icon" aria-hidden="true"></i>
+                    <div style="flex:1">
+                        <div class="pcard-num">PROJET_05.md</div>
+                        <div class="pcard-title">Vérification des postes informatiques</div>
+                    </div>
+                    <div
+                        style="display:flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--green)">
+                        <span class="dot-green"></span>TERMINÉ</div>
+                </div>
+                <div class="pcard-body">
+                    <div class="g2" style="margin-bottom:16px">
+                        <div>
+                            <div class="plabel">Contexte &amp; objectif</div>
+                            <p class="ptext">Vérifier l'état général des postes des gymnases et signaler les anomalies
+                                pour maintenir le parc fonctionnel et sécurisé.</p>
+                        </div>
+                        <div class="img-slot" style="min-height:140px">
+                            <input type="file" accept="image/*" onchange="loadImg(this,this.parentNode)">
+                            <i class="ti ti-photo" aria-hidden="true"></i>
+                            <span class="slot-label">Photo poste ou matériel</span>
+                        </div>
+                    </div>
+                    <div class="g2" style="margin-bottom:14px">
+                        <div>
+                            <div class="plabel">Travail réalisé</div>
+                            <ul class="plist">
+                                <li>Vérification du démarrage des postes</li>
+                                <li>Contrôle de la connexion réseau</li>
+                                <li>Vérification des périphériques</li>
+                                <li>Observation des lenteurs ou erreurs</li>
+                                <li>Signalement des anomalies</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="plabel">Compétences développées</div>
+                            <ul class="plist">
+                                <li>Maintenir un poste informatique</li>
+                                <li>Identifier une anomalie</li>
+                                <li>Maintenance préventive</li>
+                                <li>Documenter une intervention</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="bilan">
+                        <div class="bilan-lbl">Bilan</div>
+                        <p>La maintenance préventive permet d'éviter certains incidents et d'améliorer le confort des
+                            utilisateurs.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ██ 06 — PROJETS FORMATION ██ -->
+        <section class="sec" id="formation">
+            <div class="ph">
+                <div class="ptag">06 · Projets en formation</div>
+                <h2 class="ptitle">Projets réalisés en BTS SIO SISR</h2>
+                <div class="pdiv"></div>
+            </div>
+
+            <!-- F1 -->
+            <div class="pcard">
+                <div class="pcard-head">
+                    <i class="ti ti-device-desktop-analytics pcard-icon" aria-hidden="true"></i>
+                    <div style="flex:1">
+                        <div class="pcard-num">FORMATION_01.md</div>
+                        <div class="pcard-title">Déploiement Windows</div>
+                    </div>
+                    <div
+                        style="display:flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--cyan)">
+                        <span class="dot-cyan"></span>FORMATION</div>
+                </div>
+                <div class="pcard-body">
+                    <div class="g2" style="margin-bottom:16px">
+                        <div>
+                            <div class="plabel">Contexte &amp; objectif</div>
+                            <p class="ptext">Installation et configuration d'un poste Windows dans un environnement
+                                professionnel, réalisé sur machine virtuelle.</p>
+                            <div class="g2" style="margin-top:14px">
+                                <div>
+                                    <div class="plabel">Travail réalisé</div>
+                                    <ul class="plist">
+                                        <li>Installation Windows sur VM</li>
+                                        <li>Configuration réseau</li>
+                                        <li>Création de comptes utilisateurs</li>
+                                        <li>Vérification des mises à jour</li>
+                                        <li>Documentation des étapes</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <div class="plabel">Compétences</div>
+                                    <ul class="plist">
+                                        <li>Installer un OS Windows</li>
+                                        <li>Configurer un poste</li>
+                                        <li>Gérer des utilisateurs</li>
+                                        <li>Rédiger une doc technique</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="display:flex;flex-direction:column;gap:12px">
+                            <div class="img-slot" style="min-height:160px">
+                                <input type="file" accept="image/*" onchange="loadImg(this,this.parentNode)">
+                                <i class="ti ti-photo" aria-hidden="true"></i>
+                                <span class="slot-label">Capture installation Windows</span>
+                            </div>
+                            <div class="img-slot" style="min-height:100px">
+                                <input type="file" accept="image/*" onchange="loadImg(this,this.parentNode)">
+                                <i class="ti ti-photo" aria-hidden="true"></i>
+                                <span class="slot-label">Configuration réseau / VM</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bilan">
+                        <div class="bilan-lbl">Bilan</div>
+                        <p>Meilleure compréhension du fonctionnement d'un poste Windows dans un environnement
+                            professionnel.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- F2 -->
+            <div class="pcard">
+                <div class="pcard-head">
+                    <i class="ti ti-terminal-2 pcard-icon" aria-hidden="true"></i>
+                    <div style="flex:1">
+                        <div class="pcard-num">FORMATION_02.md</div>
+                        <div class="pcard-title">Déploiement Linux</div>
+                    </div>
+                    <div
+                        style="display:flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--cyan)">
+                        <span class="dot-cyan"></span>FORMATION</div>
+                </div>
+                <div class="pcard-body">
+                    <div class="g2" style="margin-bottom:16px">
+                        <div>
+                            <div class="plabel">Contexte &amp; objectif</div>
+                            <p class="ptext">Installation et configuration d'un système Linux en ligne de commande.
+                                Découverte de l'administration système.</p>
+                            <div class="term" style="margin-top:14px">
+                                <div class="tline"><span class="tp">root@debian</span>:<span class="tc">~#</span>
+                                    useradd -m hamed</div>
+                                <div class="tline"><span class="tp">root@debian</span>:<span class="tc">~#</span> passwd
+                                    hamed</div>
+                                <div class="tline"><span class="tp">root@debian</span>:<span class="tc">~#</span> ip
+                                    addr show</div>
+                                <div class="tline"><span class="tp">root@debian</span>:<span class="tc">~#</span> apt
+                                    update &amp;&amp; apt upgrade</div>
+                            </div>
+                            <div class="g2" style="margin-top:14px">
+                                <div>
+                                    <div class="plabel">Travail réalisé</div>
+                                    <ul class="plist">
+                                        <li>Installation distribution Linux</li>
+                                        <li>Configuration réseau en CLI</li>
+                                        <li>Création utilisateurs et droits</li>
+                                        <li>Commandes de base Linux</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <div class="plabel">Compétences</div>
+                                    <ul class="plist">
+                                        <li>Terminal et commandes Linux</li>
+                                        <li>Gestion des utilisateurs</li>
+                                        <li>Configuration réseau Linux</li>
+                                        <li>Documentation procédure</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="display:flex;flex-direction:column;gap:12px">
+                            <div class="img-slot" style="min-height:160px">
+                                <input type="file" accept="image/*" onchange="loadImg(this,this.parentNode)">
+                                <i class="ti ti-photo" aria-hidden="true"></i>
+                                <span class="slot-label">Capture terminal Linux</span>
+                            </div>
+                            <div class="img-slot" style="min-height:100px">
+                                <input type="file" accept="image/*" onchange="loadImg(this,this.parentNode)">
+                                <i class="ti ti-photo" aria-hidden="true"></i>
+                                <span class="slot-label">Config réseau ou VM</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bilan">
+                        <div class="bilan-lbl">Bilan</div>
+                        <p>Découverte de l'administration système sous Linux et acquisition des bases de la ligne de
+                            commande.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- F3 -->
+            <div class="pcard">
+                <div class="pcard-head">
+                    <i class="ti ti-world pcard-icon" aria-hidden="true"></i>
+                    <div style="flex:1">
+                        <div class="pcard-num">FORMATION_03.md</div>
+                        <div class="pcard-title">Installation de MediaWiki</div>
+                    </div>
+                    <div
+                        style="display:flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--cyan)">
+                        <span class="dot-cyan"></span>FORMATION</div>
+                </div>
+                <div class="pcard-body">
+                    <div class="g2" style="margin-bottom:16px">
+                        <div>
+                            <div class="plabel">Contexte &amp; objectif</div>
+                            <p class="ptext">Installation d'un serveur MediaWiki sur Linux avec Apache, PHP et MySQL —
+                                déploiement d'un service web applicatif complet.</p>
+                            <div class="g2" style="margin-top:14px">
+                                <div>
+                                    <div class="plabel">Travail réalisé</div>
+                                    <ul class="plist">
+                                        <li>Installation Apache, PHP, MySQL</li>
+                                        <li>Déploiement MediaWiki</li>
+                                        <li>Configuration base de données</li>
+                                        <li>Configuration serveur web</li>
+                                        <li>Tests de fonctionnement</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <div class="plabel">Compétences</div>
+                                    <ul class="plist">
+                                        <li>Service web Linux (Apache)</li>
+                                        <li>Administration MySQL</li>
+                                        <li>Déploiement applicatif</li>
+                                        <li>Documentation installation</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="display:flex;flex-direction:column;gap:12px">
+                            <div class="img-slot" style="min-height:160px">
+                                <input type="file" accept="image/*" onchange="loadImg(this,this.parentNode)">
+                                <i class="ti ti-photo" aria-hidden="true"></i>
+                                <span class="slot-label">Capture MediaWiki installé</span>
+                            </div>
+                            <div class="img-slot" style="min-height:100px">
+                                <input type="file" accept="image/*" onchange="loadImg(this,this.parentNode)">
+                                <i class="ti ti-photo" aria-hidden="true"></i>
+                                <span class="slot-label">Config Apache / MySQL</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bilan">
+                        <div class="bilan-lbl">Bilan</div>
+                        <p>Compréhension du fonctionnement d'un serveur web et mise en place de services applicatifs
+                            sous Linux.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ██ 07 — COMPÉTENCES ██ -->
+        <section class="sec" id="competences">
+            <div class="ph">
+                <div class="ptag">07 · Compétences</div>
+                <h2 class="ptitle">Compétences techniques</h2>
+                <div class="pdiv"></div>
+            </div>
+
+            <!-- illustration slot -->
+            <div class="img-slot" style="min-height:140px;margin-bottom:20px">
+                <input type="file" accept="image/*" onchange="loadImg(this,this.parentNode)">
+                <i class="ti ti-cpu" aria-hidden="true"></i>
+                <span class="slot-label">Schéma de compétences</span>
+                <span class="slot-hint">Mindmap, diagramme, capture d'écran d'outil…</span>
+            </div>
+
+            <div class="g2" style="margin-bottom:16px">
+                <div class="cc">
+                    <div class="cc-icon"><i class="ti ti-server" aria-hidden="true"></i></div>
+                    <div class="cc-title">Systèmes d'exploitation</div>
+                    <ul class="cc-list">
+                        <li>Installation et configuration Windows</li>
+                        <li>Installation et configuration Linux</li>
+                        <li>Création et gestion d'utilisateurs</li>
+                        <li>Gestion des mises à jour</li>
+                        <li>Virtualisation (VirtualBox / VMware)</li>
+                    </ul>
+                </div>
+                <div class="cc">
+                    <div class="cc-icon"><i class="ti ti-network" aria-hidden="true"></i></div>
+                    <div class="cc-title">Réseau</div>
+                    <ul class="cc-list">
+                        <li>Diagnostic réseau (ipconfig, ping)</li>
+                        <li>Configuration TCP/IP</li>
+                        <li>Câblage et brassage RJ45</li>
+                        <li>Identification des équipements réseau</li>
+                        <li>Baies informatiques et switchs</li>
+                    </ul>
+                </div>
+                <div class="cc">
+                    <div class="cc-icon"><i class="ti ti-shield-lock" aria-hidden="true"></i></div>
+                    <div class="cc-title">Cybersécurité</div>
+                    <ul class="cc-list">
+                        <li>Notions de base en sécurité IT</li>
+                        <li>Gestion des accès et des droits</li>
+                        <li>Veille sur les menaces</li>
+                        <li>Sécurisation des équipements</li>
+                    </ul>
+                </div>
+                <div class="cc">
+                    <div class="cc-icon"><i class="ti ti-headset" aria-hidden="true"></i></div>
+                    <div class="cc-title">Support utilisateur</div>
+                    <ul class="cc-list">
+                        <li>Assistance de premier niveau (N1)</li>
+                        <li>Diagnostic de pannes matérielles</li>
+                        <li>Résolution d'incidents courants</li>
+                        <li>Escalade niveau 2</li>
+                        <li>Communication avec les utilisateurs</li>
+                    </ul>
+                </div>
+                <div class="cc">
+                    <div class="cc-icon"><i class="ti ti-device-laptop" aria-hidden="true"></i></div>
+                    <div class="cc-title">Gestion du parc</div>
+                    <ul class="cc-list">
+                        <li>Inventaire du matériel</li>
+                        <li>Suivi de l'état des équipements</li>
+                        <li>Maintenance préventive</li>
+                        <li>Documentation des interventions</li>
+                    </ul>
+                </div>
+                <div class="cc">
+                    <div class="cc-icon"><i class="ti ti-file-text" aria-hidden="true"></i></div>
+                    <div class="cc-title">Documentation</div>
+                    <ul class="cc-list">
+                        <li>Rédaction de procédures techniques</li>
+                        <li>Comptes-rendus d'intervention</li>
+                        <li>Schémas réseau simples</li>
+                        <li>Fiches d'inventaire matériel</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card card-accent">
+                <div class="plabel" style="margin-bottom:12px">Outils &amp; technologies</div>
+                <div class="tags">
+                    <span class="tag">Windows Server</span><span class="tag">Linux Debian</span>
+                    <span class="tag">Apache</span><span class="tag">MySQL</span>
+                    <span class="tag">MediaWiki</span><span class="tag">VirtualBox</span>
+                    <span class="tag">TCP/IP</span><span class="tag">RJ45</span>
+                    <span class="tag">Switch</span><span class="tag">ipconfig</span>
+                    <span class="tag">ping</span><span class="tag">SSH</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ██ 08 — VEILLE ██ -->
+        <section class="sec" id="veille">
+            <div class="ph">
+                <div class="ptag">08 · Veille technologique</div>
+                <h2 class="ptitle">Veille technologique</h2>
+                <div class="pdiv"></div>
+                <p class="psub">Veille régulière sur les sujets liés à l'infrastructure, au réseau et à la
+                    cybersécurité.</p>
+            </div>
+
+            <div class="card" style="margin-bottom:18px">
+                <div class="plabel" style="margin-bottom:12px">Méthode &amp; sources</div>
+                <div class="g3">
+                    <div
+                        style="display:flex;align-items:center;gap:9px;padding:10px;background:rgba(0,200,240,0.04);border:1px solid var(--border);border-radius:var(--r)">
+                        <i class="ti ti-rss" style="font-size:16px;color:var(--cyan2);flex-shrink:0"
+                            aria-hidden="true"></i>
+                        <span style="font-size:12px;color:var(--text2);font-family:'JetBrains Mono',monospace">Flux RSS
+                            / blogs IT</span>
+                    </div>
+                    <div
+                        style="display:flex;align-items:center;gap:9px;padding:10px;background:rgba(0,200,240,0.04);border:1px solid var(--border);border-radius:var(--r)">
+                        <i class="ti ti-shield" style="font-size:16px;color:var(--cyan2);flex-shrink:0"
+                            aria-hidden="true"></i>
+                        <span style="font-size:12px;color:var(--text2);font-family:'JetBrains Mono',monospace">CERT-FR /
+                            ANSSI</span>
+                    </div>
+                    <div
+                        style="display:flex;align-items:center;gap:9px;padding:10px;background:rgba(0,200,240,0.04);border:1px solid var(--border);border-radius:var(--r)">
+                        <i class="ti ti-brand-youtube" style="font-size:16px;color:var(--cyan2);flex-shrink:0"
+                            aria-hidden="true"></i>
+                        <span style="font-size:12px;color:var(--text2);font-family:'JetBrains Mono',monospace">Tutoriels
+                            vidéo</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- illustration slot -->
+            <div class="img-slot" style="min-height:140px;margin-bottom:18px">
+                <input type="file" accept="image/*" onchange="loadImg(this,this.parentNode)">
+                <i class="ti ti-article" aria-hidden="true"></i>
+                <span class="slot-label">Capture d'article ou de source de veille</span>
+                <span class="slot-hint">Screenshot ANSSI, article de blog, tweet, flux RSS…</span>
+            </div>
+
+            <div class="vc">
+                <div class="vc-date">CYBERSÉCURITÉ · 2024–2025</div>
+                <div class="vc-title">Les ransomwares : menace numéro 1 pour les organisations</div>
+                <div class="vc-text">Les ransomwares chiffrent les données des victimes et exigent une rançon. L'ANSSI
+                    recommande des sauvegardes régulières, la sensibilisation des utilisateurs et la mise à jour des
+                    systèmes. Cette menace touche particulièrement les collectivités et les établissements publics.
+                </div>
+                <div class="tags" style="margin-top:10px"><span class="tag">Cybersécurité</span><span
+                        class="tag">ANSSI</span><span class="tag">Ransomware</span></div>
+            </div>
+
+            <div class="vc">
+                <div class="vc-date">INFRASTRUCTURE · 2024–2025</div>
+                <div class="vc-title">Virtualisation et conteneurisation : évolution des infrastructures</div>
+                <div class="vc-text">La virtualisation permet de créer des machines virtuelles sur un seul serveur
+                    physique, réduisant les coûts et facilitant la gestion. La conteneurisation avec Docker représente
+                    une évolution permettant de déployer des applications de manière plus légère et portable.</div>
+                <div class="tags" style="margin-top:10px"><span class="tag">Virtualisation</span><span
+                        class="tag">VMware</span><span class="tag">Docker</span></div>
+            </div>
+
+            <div class="vc">
+                <div class="vc-date">RÉSEAU · 2024–2025</div>
+                <div class="vc-title">Wi-Fi 6 et évolution des réseaux sans fil</div>
+                <div class="vc-text">Le Wi-Fi 6 (802.11ax) apporte des améliorations importantes en termes de débit, de
+                    capacité et d'efficacité énergétique. Cette technologie est adaptée aux environnements avec de
+                    nombreux équipements connectés, comme les établissements publics.</div>
+                <div class="tags" style="margin-top:10px"><span class="tag">Réseau</span><span class="tag">Wi-Fi
+                        6</span><span class="tag">802.11ax</span></div>
+            </div>
+
+            <div class="vc">
+                <div class="vc-date">SYSTÈMES · 2024–2025</div>
+                <div class="vc-title">Windows 11 : nouvelles exigences matérielles et sécurité</div>
+                <div class="vc-text">Windows 11 introduit de nouvelles exigences matérielles (TPM 2.0, Secure Boot) et
+                    des améliorations de sécurité. La fin du support de Windows 10 est prévue en octobre 2025 —
+                    migration importante pour les techniciens SISR.</div>
+                <div class="tags" style="margin-top:10px"><span class="tag">Windows 11</span><span
+                        class="tag">Migration</span><span class="tag">TPM 2.0</span></div>
+            </div>
+        </section>
+
+        <!-- ██ 09 — CONTACT ██ -->
+        <section class="sec" id="contact">
+            <div class="ph">
+                <div class="ptag">09 · Contact</div>
+                <h2 class="ptitle">Me contacter</h2>
+                <div class="pdiv"></div>
+            </div>
+
+            <div class="g2">
+                <div>
+                    <div class="card card-accent" style="margin-bottom:16px">
+                        <div style="display:flex;align-items:center;gap:14px;margin-bottom:18px">
+                            <div
+                                style="width:52px;height:52px;border-radius:var(--r);background:linear-gradient(135deg,#0a3060,#1a5fa8);border:1px solid var(--cyan2);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:18px;color:var(--cyan);font-family:'JetBrains Mono',monospace;flex-shrink:0;box-shadow:0 0 16px rgba(0,200,240,0.15)">
+                                HN</div>
+                            <div>
+                                <div style="font-size:17px;font-weight:700;color:#e8f4ff">Hamed Naar</div>
+                                <div
+                                    style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text3);margin-top:3px;letter-spacing:.5px">
+                                    ÉTUDIANT BTS SIO · OPTION SISR</div>
+                            </div>
+                        </div>
+                        <div class="crow">
+                            <div class="cico"><i class="ti ti-mail" aria-hidden="true"></i></div>
+                            <div>
+                                <div class="clabel">EMAIL</div>
+                                <div class="cval">hamed.naar@email.com</div>
+                            </div>
+                        </div>
+                        <div class="crow">
+                            <div class="cico"><i class="ti ti-phone" aria-hidden="true"></i></div>
+                            <div>
+                                <div class="clabel">TÉLÉPHONE</div>
+                                <div class="cval">06 XX XX XX XX</div>
+                            </div>
+                        </div>
+                        <div class="crow">
+                            <div class="cico"><i class="ti ti-map-pin" aria-hidden="true"></i></div>
+                            <div>
+                                <div class="clabel">LOCALISATION</div>
+                                <div class="cval">Massy, Île-de-France</div>
+                            </div>
+                        </div>
+                        <div class="crow">
+                            <div class="cico"><i class="ti ti-brand-linkedin" aria-hidden="true"></i></div>
+                            <div>
+                                <div class="clabel">LINKEDIN</div>
+                                <div class="cval">linkedin.com/in/hamed-naar</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="plabel" style="margin-bottom:12px">Disponibilité</div>
+                        <div style="display:flex;flex-direction:column;gap:10px">
+                            <div
+                                style="display:flex;align-items:center;gap:10px;padding:10px;background:rgba(0,229,122,0.06);border:1px solid rgba(0,229,122,0.2);border-radius:var(--r)">
+                                <span class="dot-green"></span>
+                                <div>
+                                    <div style="font-size:13px;font-weight:600;color:#ddeeff">Stage disponible</div>
+                                    <div
+                                        style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text3);margin-top:2px">
+                                        Alternance ou stage BTS SIO</div>
+                                </div>
+                            </div>
+                            <div
+                                style="display:flex;align-items:center;gap:10px;padding:10px;background:rgba(0,200,240,0.06);border:1px solid rgba(0,200,240,0.15);border-radius:var(--r)">
+                                <span class="dot-cyan"></span>
+                                <div>
+                                    <div style="font-size:13px;font-weight:600;color:#ddeeff">Mobilité Île-de-France
+                                    </div>
+                                    <div
+                                        style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text3);margin-top:2px">
+                                        Transports en commun</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="img-slot" style="min-height:260px;margin-bottom:16px">
+                        <input type="file" accept="image/*" onchange="loadImg(this,this.parentNode)">
+                        <i class="ti ti-user-circle" aria-hidden="true"></i>
+                        <span class="slot-label">Photo de profil</span>
+                        <span class="slot-hint">Portrait professionnel ou photo</span>
+                    </div>
+                    <div class="card" style="background:var(--bg4);border-color:var(--border2)">
+                        <div
+                            style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--cyan);letter-spacing:2px;text-transform:uppercase;margin-bottom:10px">
+                            // Objectif professionnel</div>
+                        <p style="font-size:13.5px;color:var(--text2);line-height:1.75">Je recherche une opportunité en
+                            tant que <strong style="color:var(--cyan)">technicien systèmes et réseaux</strong>, <strong
+                                style="color:var(--cyan)">technicien support</strong> ou <strong
+                                style="color:var(--cyan)">administrateur réseaux junior</strong>.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <button id="mob-btn" onclick="tglSB()" aria-label="Menu"><i class="ti ti-menu-2"></i></button>
+
+    <script>
+        function go(id) {
+            document.querySelectorAll('.sec').forEach(s => s.classList.remove('on'));
+            document.querySelectorAll('.ni').forEach(n => n.classList.remove('on'));
+            document.getElementById(id).classList.add('on');
+            document.querySelectorAll('.ni').forEach(n => {
+                if (n.getAttribute('onclick') && n.getAttribute('onclick').includes(id)) n.classList.add('on');
+            });
+            document.getElementById('mn').scrollTop = 0;
+            window.scrollTo(0, 0);
+            if (window.innerWidth < 860) document.getElementById('sb').classList.remove('open');
+        }
+        function tglSB() { document.getElementById('sb').classList.toggle('open') }
+
+        function loadImg(inp, slot) {
+            const file = inp.files[0]; if (!file) return;
+            const reader = new FileReader();
+            reader.onload = e => {
+                slot.style.backgroundImage = 'url(' + e.target.result + ')';
+                slot.style.backgroundSize = 'cover';
+                slot.style.backgroundPosition = 'center';
+                slot.style.border = '1px solid var(--border2)';
+                slot.querySelectorAll('i,span').forEach(el => el.style.display = 'none');
+            };
+            reader.readAsDataURL(file);
+        }
+    </script>
+</body>
+
+</html>
