@@ -1011,6 +1011,13 @@
                 grid-template-columns: repeat(2, 1fr)
             }
         }
+
+        img {
+            width: 100%;
+            aspect-ratio: 16 / 7;
+            object-fit: cover;
+            border-radius: 18px;
+        }
     </style>
 </head>
 
@@ -1072,10 +1079,7 @@
             <!-- illustration slot -->
             <div class="g21" style="margin-bottom:18px">
                 <div class="img-slot" style="min-height:220px">
-                    <input type="file" accept="image/*" onchange="loadImg(this,this.parentNode)">
-                    <i class="ti ti-photo-plus" aria-hidden="true"></i>
-                    <span class="slot-label">Illustration principale</span>
-                    <span class="slot-hint">Photo de profil ou illustration technique</span>
+                    <img src="01-accueil-hero-informatique.jpg">
                 </div>
                 <div style="display:flex;flex-direction:column;gap:12px">
                     <div class="sbox">
@@ -1208,10 +1212,7 @@
 
             <!-- illustration slot -->
             <div class="img-slot" style="min-height:160px;margin-bottom:18px">
-                <input type="file" accept="image/*" onchange="loadImg(this,this.parentNode)">
-                <i class="ti ti-layout-grid" aria-hidden="true"></i>
-                <span class="slot-label">Schéma ou illustration BTS SIO</span>
-                <span class="slot-hint">Diagramme de la formation, capture de cours, logo officiel…</span>
+                <img src="03-formation-bts-sio-sisr.jpg">
             </div>
 
             <div class="card">
@@ -1308,10 +1309,7 @@
                 </div>
                 <div>
                     <div class="img-slot" style="min-height:340px">
-                        <input type="file" accept="image/*" onchange="loadImg(this,this.parentNode)">
-                        <i class="ti ti-building-community" aria-hidden="true"></i>
-                        <span class="slot-label">Illustration du site</span>
-                        <span class="slot-hint">Photo gymnase, baie réseau, équipements…</span>
+                        <img src="04-contexte-professionnel-gymnases.jpg">
                     </div>
                 </div>
             </div>
@@ -1345,7 +1343,8 @@
                     </div>
                     <div
                         style="display:flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--green)">
-                        <span class="dot-green"></span>TERMINÉ</div>
+                        <span class="dot-green"></span>TERMINÉ
+                    </div>
                 </div>
                 <div class="pcard-body">
                     <div class="g2" style="margin-bottom:16px">
@@ -1356,9 +1355,7 @@
                             </p>
                         </div>
                         <div class="img-slot" style="min-height:140px">
-                            <input type="file" accept="image/*" onchange="loadImg(this,this.parentNode)">
-                            <i class="ti ti-photo" aria-hidden="true"></i>
-                            <span class="slot-label">Photo de la baie</span>
+                            <img src="05-projet-baie-informatique.jpg">
                         </div>
                     </div>
                     <div class="g2" style="margin-bottom:14px">
@@ -1400,7 +1397,8 @@
                     </div>
                     <div
                         style="display:flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--green)">
-                        <span class="dot-green"></span>TERMINÉ</div>
+                        <span class="dot-green"></span>TERMINÉ
+                    </div>
                 </div>
                 <div class="pcard-body">
                     <div class="g2" style="margin-bottom:16px">
@@ -1410,9 +1408,7 @@
                                 poste non connecté, téléphone IP non fonctionnel, imprimante inaccessible.</p>
                         </div>
                         <div class="img-slot" style="min-height:140px">
-                            <input type="file" accept="image/*" onchange="loadImg(this,this.parentNode)">
-                            <i class="ti ti-photo" aria-hidden="true"></i>
-                            <span class="slot-label">Capture ou schéma réseau</span>
+                            <img src="06-projet-diagnostic-reseau.jpg">
                         </div>
                     </div>
                     <div class="term" style="margin-bottom:14px">
@@ -1463,7 +1459,8 @@
                     </div>
                     <div
                         style="display:flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--green)">
-                        <span class="dot-green"></span>TERMINÉ</div>
+                        <span class="dot-green"></span>TERMINÉ
+                    </div>
                 </div>
                 <div class="pcard-body">
                     <div class="g2" style="margin-bottom:16px">
@@ -1474,9 +1471,7 @@
                                 du parc.</p>
                         </div>
                         <div class="img-slot" style="min-height:140px">
-                            <input type="file" accept="image/*" onchange="loadImg(this,this.parentNode)">
-                            <i class="ti ti-photo" aria-hidden="true"></i>
-                            <span class="slot-label">Capture du tableau d'inventaire</span>
+                            <img src="07-projet-inventaire-materiel.jpg">
                         </div>
                     </div>
                     <div class="g2" style="margin-bottom:14px">
@@ -1518,7 +1513,8 @@
                     </div>
                     <div
                         style="display:flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--green)">
-                        <span class="dot-green"></span>TERMINÉ</div>
+                        <span class="dot-green"></span>TERMINÉ
+                    </div>
                 </div>
                 <div class="pcard-body">
                     <div class="g2" style="margin-bottom:16px">
@@ -1529,9 +1525,7 @@
                                 introuvable.</p>
                         </div>
                         <div class="img-slot" style="min-height:140px">
-                            <input type="file" accept="image/*" onchange="loadImg(this,this.parentNode)">
-                            <i class="ti ti-photo" aria-hidden="true"></i>
-                            <span class="slot-label">Illustration support utilisateur</span>
+                            <img src="08-projet-support-utilisateur.jpg">
                         </div>
                     </div>
                     <div class="g2" style="margin-bottom:14px">
@@ -1573,7 +1567,8 @@
                     </div>
                     <div
                         style="display:flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--green)">
-                        <span class="dot-green"></span>TERMINÉ</div>
+                        <span class="dot-green"></span>TERMINÉ
+                    </div>
                 </div>
                 <div class="pcard-body">
                     <div class="g2" style="margin-bottom:16px">
@@ -1583,9 +1578,7 @@
                                 pour maintenir le parc fonctionnel et sécurisé.</p>
                         </div>
                         <div class="img-slot" style="min-height:140px">
-                            <input type="file" accept="image/*" onchange="loadImg(this,this.parentNode)">
-                            <i class="ti ti-photo" aria-hidden="true"></i>
-                            <span class="slot-label">Photo poste ou matériel</span>
+                            <img src="09-projet-verification-postes.jpg">
                         </div>
                     </div>
                     <div class="g2" style="margin-bottom:14px">
@@ -1636,7 +1629,8 @@
                     </div>
                     <div
                         style="display:flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--cyan)">
-                        <span class="dot-cyan"></span>FORMATION</div>
+                        <span class="dot-cyan"></span>FORMATION
+                    </div>
                 </div>
                 <div class="pcard-body">
                     <div class="g2" style="margin-bottom:16px">
@@ -1668,14 +1662,7 @@
                         </div>
                         <div style="display:flex;flex-direction:column;gap:12px">
                             <div class="img-slot" style="min-height:160px">
-                                <input type="file" accept="image/*" onchange="loadImg(this,this.parentNode)">
-                                <i class="ti ti-photo" aria-hidden="true"></i>
-                                <span class="slot-label">Capture installation Windows</span>
-                            </div>
-                            <div class="img-slot" style="min-height:100px">
-                                <input type="file" accept="image/*" onchange="loadImg(this,this.parentNode)">
-                                <i class="ti ti-photo" aria-hidden="true"></i>
-                                <span class="slot-label">Configuration réseau / VM</span>
+                                <img src="10-formation-deploiement-windows.jpg">
                             </div>
                         </div>
                     </div>
@@ -1697,7 +1684,8 @@
                     </div>
                     <div
                         style="display:flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--cyan)">
-                        <span class="dot-cyan"></span>FORMATION</div>
+                        <span class="dot-cyan"></span>FORMATION
+                    </div>
                 </div>
                 <div class="pcard-body">
                     <div class="g2" style="margin-bottom:16px">
@@ -1738,14 +1726,7 @@
                         </div>
                         <div style="display:flex;flex-direction:column;gap:12px">
                             <div class="img-slot" style="min-height:160px">
-                                <input type="file" accept="image/*" onchange="loadImg(this,this.parentNode)">
-                                <i class="ti ti-photo" aria-hidden="true"></i>
-                                <span class="slot-label">Capture terminal Linux</span>
-                            </div>
-                            <div class="img-slot" style="min-height:100px">
-                                <input type="file" accept="image/*" onchange="loadImg(this,this.parentNode)">
-                                <i class="ti ti-photo" aria-hidden="true"></i>
-                                <span class="slot-label">Config réseau ou VM</span>
+                                <img src="11-formation-deploiement-linux.jpg">
                             </div>
                         </div>
                     </div>
@@ -1767,7 +1748,8 @@
                     </div>
                     <div
                         style="display:flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--cyan)">
-                        <span class="dot-cyan"></span>FORMATION</div>
+                        <span class="dot-cyan"></span>FORMATION
+                    </div>
                 </div>
                 <div class="pcard-body">
                     <div class="g2" style="margin-bottom:16px">
@@ -1799,14 +1781,7 @@
                         </div>
                         <div style="display:flex;flex-direction:column;gap:12px">
                             <div class="img-slot" style="min-height:160px">
-                                <input type="file" accept="image/*" onchange="loadImg(this,this.parentNode)">
-                                <i class="ti ti-photo" aria-hidden="true"></i>
-                                <span class="slot-label">Capture MediaWiki installé</span>
-                            </div>
-                            <div class="img-slot" style="min-height:100px">
-                                <input type="file" accept="image/*" onchange="loadImg(this,this.parentNode)">
-                                <i class="ti ti-photo" aria-hidden="true"></i>
-                                <span class="slot-label">Config Apache / MySQL</span>
+                                <img src="12-formation-installation-mediawiki.jpg">
                             </div>
                         </div>
                     </div>
@@ -1829,10 +1804,7 @@
 
             <!-- illustration slot -->
             <div class="img-slot" style="min-height:140px;margin-bottom:20px">
-                <input type="file" accept="image/*" onchange="loadImg(this,this.parentNode)">
-                <i class="ti ti-cpu" aria-hidden="true"></i>
-                <span class="slot-label">Schéma de compétences</span>
-                <span class="slot-hint">Mindmap, diagramme, capture d'écran d'outil…</span>
+                <img src="13-competences-techniques.jpg">
             </div>
 
             <div class="g2" style="margin-bottom:16px">
@@ -1953,10 +1925,7 @@
 
             <!-- illustration slot -->
             <div class="img-slot" style="min-height:140px;margin-bottom:18px">
-                <input type="file" accept="image/*" onchange="loadImg(this,this.parentNode)">
-                <i class="ti ti-article" aria-hidden="true"></i>
-                <span class="slot-label">Capture d'article ou de source de veille</span>
-                <span class="slot-hint">Screenshot ANSSI, article de blog, tweet, flux RSS…</span>
+                <img src="14-veille-technologique-cyber-reseau.jpg">
             </div>
 
             <div class="vc">
@@ -2034,7 +2003,7 @@
                             <div class="cico"><i class="ti ti-phone" aria-hidden="true"></i></div>
                             <div>
                                 <div class="clabel">TÉLÉPHONE</div>
-                                <div class="cval">06 XX XX XX XX</div>
+                                <div class="cval">06 51 13 59 66</div>
                             </div>
                         </div>
                         <div class="crow">
@@ -2083,10 +2052,7 @@
 
                 <div>
                     <div class="img-slot" style="min-height:260px;margin-bottom:16px">
-                        <input type="file" accept="image/*" onchange="loadImg(this,this.parentNode)">
-                        <i class="ti ti-user-circle" aria-hidden="true"></i>
-                        <span class="slot-label">Photo de profil</span>
-                        <span class="slot-hint">Portrait professionnel ou photo</span>
+                        <img src="15-contact-informatique.jpg">
                     </div>
                     <div class="card" style="background:var(--bg4);border-color:var(--border2)">
                         <div
