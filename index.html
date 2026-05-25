@@ -1018,6 +1018,20 @@
             object-fit: cover;
             border-radius: 18px;
         }
+
+        #imgProfil {
+            width: 100%;
+            aspect-ratio: 16 / 13;
+            object-fit: cover;
+            border-radius: 18px;
+        }
+
+        #mediaWiki {
+            width: 100%;
+            aspect-ratio: 10 / 10;
+            object-fit: cover;
+            border-radius: 18px;
+        }
     </style>
 </head>
 
@@ -1027,8 +1041,8 @@
     <aside id="sb">
         <div class="sb-top">
             <div class="sb-logo">SISR · 2026</div>
-            <div class="sb-av">HN</div>
-            <div class="sb-name">Hamed Naar</div>
+            <div class="sb-av">AN</div>
+            <div class="sb-name">Ayoub Naar</div>
             <div class="sb-role">BTS SIO · OPTION SISR</div>
         </div>
         <nav>
@@ -1059,8 +1073,8 @@
                 <div class="hero-grid"></div>
                 <div class="hero-corner"></div>
                 <div class="hero-inner">
-                    <div class="hero-prompt">Portfolio BTS SIO SISR — Hamed Naar</div>
-                    <h1 class="hero-h1">Hamed <span>Naar</span></h1>
+                    <div class="hero-prompt">Portfolio BTS SIO SISR — Ayoub Naar</div>
+                    <h1 class="hero-h1">Ayoub <span>Naar</span></h1>
                     <p
                         style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--text3);margin-bottom:18px">
                         <span style="color:var(--cyan2)">role</span> = "Étudiant en BTS SIO option SISR"
@@ -1121,10 +1135,7 @@
             <div class="g12" style="margin-bottom:18px">
                 <div>
                     <div class="img-slot" style="min-height:260px">
-                        <input type="file" accept="image/*" onchange="loadImg(this,this.parentNode)">
-                        <i class="ti ti-user-circle" aria-hidden="true"></i>
-                        <span class="slot-label">Photo de profil</span>
-                        <span class="slot-hint">Portrait professionnel</span>
+                        <img src="WhatsApp Image 2026-05-25 at 18.26.02 (1).jpeg" id="imgProfil">
                     </div>
                 </div>
                 <div>
@@ -1132,13 +1143,15 @@
                         <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">
                             <div
                                 style="width:48px;height:48px;border-radius:var(--r);background:linear-gradient(135deg,#0a3060,#1a5fa8);border:1px solid var(--cyan2);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;color:var(--cyan);font-family:'JetBrains Mono',monospace;flex-shrink:0">
-                                HN</div>
+                                AN</div>
                             <div>
-                                <div style="font-size:17px;font-weight:700;color:#e8f4ff">Hamed Naar</div>
+                                <div style="font-size:17px;font-weight:700;color:#e8f4ff">Ayoub Naar</div>
                                 <div
                                     style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text3);margin-top:2px;letter-spacing:1px">
                                     BTS SIO · OPTION SISR</div>
                             </div>
+                            <a class="btn" href=""><i class="ti ti-folder-open"></i>Mon CV</a>
+
                             <div
                                 style="margin-left:auto;display:flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--green)">
                                 <span class="dot-green"></span>ACTIF
@@ -1212,7 +1225,7 @@
 
             <!-- illustration slot -->
             <div class="img-slot" style="min-height:160px;margin-bottom:18px">
-                <img src="03-formation-bts-sio-sisr.jpg">
+                <img src="WhatsApp Image 2026-05-25 at 18.26.02.jpeg" style="aspect-ratio: 16/10;">
             </div>
 
             <div class="card">
@@ -1659,10 +1672,12 @@
                                     </ul>
                                 </div>
                             </div>
+                            <a class="btn" href="PP1_Deploiement_Windows_Ayoub_Naar_SITE.pdf"><i
+                                    class="ti ti-folder-open"></i>Voir plus de détails</a>
                         </div>
                         <div style="display:flex;flex-direction:column;gap:12px">
                             <div class="img-slot" style="min-height:160px">
-                                <img src="10-formation-deploiement-windows.jpg">
+                                <img src="WhatsApp Image 2026-05-25 at 19.02.00.jpeg" id="imgProfil">
                             </div>
                         </div>
                     </div>
@@ -1723,10 +1738,12 @@
                                     </ul>
                                 </div>
                             </div>
+                            <a class="btn" href="PP2_Deploiement_Ubuntu_Sauvegarde_Ayoub_Naar_SITE.pdf"><i
+                                    class="ti ti-folder-open"></i>Voir plus de détails</a>
                         </div>
                         <div style="display:flex;flex-direction:column;gap:12px">
                             <div class="img-slot" style="min-height:160px">
-                                <img src="11-formation-deploiement-linux.jpg">
+                                <img src="WhatsApp Image 2026-05-25 at 19.02.00 (1).jpeg" style="aspect-ratio: 16 / 9;">
                             </div>
                         </div>
                     </div>
@@ -1781,7 +1798,7 @@
                         </div>
                         <div style="display:flex;flex-direction:column;gap:12px">
                             <div class="img-slot" style="min-height:160px">
-                                <img src="12-formation-installation-mediawiki.jpg">
+                                <img src="WhatsApp Image 2026-05-25 at 18.26.01.jpeg" id="mediaWiki">
                             </div>
                         </div>
                     </div>
@@ -1984,9 +2001,9 @@
                         <div style="display:flex;align-items:center;gap:14px;margin-bottom:18px">
                             <div
                                 style="width:52px;height:52px;border-radius:var(--r);background:linear-gradient(135deg,#0a3060,#1a5fa8);border:1px solid var(--cyan2);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:18px;color:var(--cyan);font-family:'JetBrains Mono',monospace;flex-shrink:0;box-shadow:0 0 16px rgba(0,200,240,0.15)">
-                                HN</div>
+                                AN</div>
                             <div>
-                                <div style="font-size:17px;font-weight:700;color:#e8f4ff">Hamed Naar</div>
+                                <div style="font-size:17px;font-weight:700;color:#e8f4ff">Ayoub Naar</div>
                                 <div
                                     style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text3);margin-top:3px;letter-spacing:.5px">
                                     ÉTUDIANT BTS SIO · OPTION SISR</div>
@@ -1996,7 +2013,7 @@
                             <div class="cico"><i class="ti ti-mail" aria-hidden="true"></i></div>
                             <div>
                                 <div class="clabel">EMAIL</div>
-                                <div class="cval">hamed.naar@email.com</div>
+                                <div class="cval">ayoubnaar@gmail.com</div>
                             </div>
                         </div>
                         <div class="crow">
@@ -2017,7 +2034,11 @@
                             <div class="cico"><i class="ti ti-brand-linkedin" aria-hidden="true"></i></div>
                             <div>
                                 <div class="clabel">LINKEDIN</div>
-                                <div class="cval">linkedin.com/in/hamed-naar</div>
+                                <a href="https://www.linkedin.com/in/ayoub-n-aa644517a/">
+                                    <div class="cval">
+                                        https://www.linkedin.com/in/ayoub-n-aa644517a/
+                                    </div>
+                                </a>
                             </div>
                         </div>
                     </div>
